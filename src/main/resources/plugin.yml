@@ -1,0 +1,7 @@
+name: Additions
+version: '${version}'
+main: me.eradiator.bedwars.additions.Main
+api-version: 1.13
+prefix: BedWars1058-Additions
+softdepend: [ BedWar1058 ]
+authors: [ Eradiator ]

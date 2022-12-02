@@ -1,0 +1,35 @@
+#Main Config For Additions Addon.
+lobby:
+  adventure-mode: false
+  level-bar:
+    enabled: true
+    permission:
+      enabled: false
+      node: "bwa.level-bar"
+waiting:
+  adventure-mode: true
+  flight:
+    enabled: false
+    permission:
+      enabled: true
+      node: "bwa.flight"
+  blindness:
+    enabled: false
+    bypass-permission:
+      enabled: true
+      node: "bwa.blindness.bypass"
+  level-bar:
+    enabled: false
+    permission:
+      enabled: false
+      node: "bwa.level-bar"
+in-game:
+  level-bar:
+    enabled: false
+    permission:
+      enabled: false
+      node: "bwa.level-bar"
+
+
+
+
