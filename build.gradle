@@ -58,6 +58,9 @@ processResources {
     def props = [version: version]
     inputs.properties props
     filteringCharset 'UTF-8'
+    filesMatching('PAPI.java'){
+        expand props
+    }
     filesMatching('plugin.yml') {
         expand props
     }

@@ -1,6 +1,8 @@
 package me.eradiator.bedwars.additions;
 
+import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.eradiator.bedwars.additions.files.Messages;
+import me.eradiator.bedwars.additions.hooks.PAPI;
 import me.eradiator.bedwars.additions.listeners.onPlayerArenaJoin;
 import me.eradiator.bedwars.additions.listeners.onPlayerServerJoin;
 import me.eradiator.bedwars.additions.listeners.onPlayerWorldChange;
@@ -18,6 +20,7 @@ public final class Main extends JavaPlugin {
         Messages.saveDefaultConfig();
         getConfig().options().copyDefaults();
         saveDefaultConfig();
+        new PAPI().register();
         getServer().getPluginManager().registerEvents(new onPlayerArenaJoin() , this);
         getServer().getPluginManager().registerEvents(new onPlayerServerJoin() ,this);
         getServer().getPluginManager().registerEvents(new onPlayerWorldChange() ,this);
