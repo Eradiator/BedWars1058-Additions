@@ -12,10 +12,10 @@ import java.io.InputStreamReader;
 import java.util.logging.Level;
 
 public class Messages {
-    private static final File file = new File(Main.getInstance().getDataFolder().toString() , "messages.yml");
-    private static YamlConfiguration config = null;
+    private  final File file = new File(Main.getInstance().getDataFolder().toString() , "messages.yml");
+    private  YamlConfiguration config = null;
 
-    public static void saveConfig() {
+    public  void saveConfig() {
         try {
             getConfig().save(file);
         } catch (IOException var2) {
@@ -23,29 +23,29 @@ public class Messages {
         }
 
     }
-    public static void saveDefaultConfig() {
+    public  void saveDefaultConfig() {
         if (!file.exists()) {
             Main.getInstance().saveResource("messages.yml", false);
         }
 
     }
-    public static FileConfiguration getConfig() {
+    public  FileConfiguration getConfig() {
         if (config == null) {
             reloadConfig();
         }
 
         return config;
-    }public static void reloadConfig() {
+    }public  void reloadConfig() {
         config = YamlConfiguration.loadConfiguration(file);
         InputStream defConfigStream = Main.getInstance().getResource("messages.yml");
         if (defConfigStream != null) {
             config.setDefaults(YamlConfiguration.loadConfiguration(new InputStreamReader(defConfigStream, Charsets.UTF_8)));
         }
     }
-    public static File getFile(){
+    public  File getFile(){
         return file;
     }
-    public static File getDataFolder(){
+    public  File getDataFolder(){
         return Main.getInstance().getDataFolder();
     }
 }
