@@ -22,7 +22,9 @@ public enum MainPath {
     IN_GAME_LEVEL_BAR_PERMISSION_NODE("in-game.level-bar.permission.node"),
     IN_GAME_LEVEL_BAR_ENABLED("in-game.level-bar.enabled"),
     LOBBY_MODE("lobby.adventure-mode"),
-    WAITING_MODE("waiting.adventure-mode");
+    WAITING_MODE("waiting.adventure-mode"),
+    UNBREAKABLE_MATERIAL_ENABLED("in-game.unbreakable.enabled"),
+    UNBREAKABLE_MATERIAL("in-game.unbreakable.materials");
 
     final String path;
     MainPath(String path){

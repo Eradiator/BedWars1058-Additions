@@ -29,6 +29,13 @@ in-game:
     permission:
       enabled: false
       node: "bwa.level-bar"
+  unbreakable:
+    enabled: true
+    materials:
+      #1.13+ Material ID
+      - "DIAMOND_SWORD"
+      - "IRON_SWORD"
+      - "WOODEN_SWORD"
 
 
 
