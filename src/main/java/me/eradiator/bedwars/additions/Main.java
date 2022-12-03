@@ -5,6 +5,7 @@ import me.eradiator.bedwars.additions.hooks.PAPI;
 import me.eradiator.bedwars.additions.listeners.onPlayerArenaJoin;
 import me.eradiator.bedwars.additions.listeners.onPlayerServerJoin;
 import me.eradiator.bedwars.additions.listeners.onPlayerWorldChange;
+import me.eradiator.bedwars.additions.utils.EventsRegister;
 import me.eradiator.bedwars.additions.utils.Msg;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -26,9 +27,7 @@ public final class Main extends JavaPlugin {
                 Messages.saveDefaultConfig();
                 getConfig().options().copyDefaults();
                 saveDefaultConfig();
-                getServer().getPluginManager().registerEvents(new onPlayerArenaJoin() , this);
-                getServer().getPluginManager().registerEvents(new onPlayerServerJoin() ,this);
-                getServer().getPluginManager().registerEvents(new onPlayerWorldChange() ,this);
+                new EventsRegister(this);
                 new PAPI().register();
                 Msg.console("&e&l[BedWars1058-Additions] &ahas been enabled successfully.");
                 Msg.console("&f[BedWars1058-Additions] &bHooks: \n" +
@@ -42,9 +41,7 @@ public final class Main extends JavaPlugin {
                 Messages.saveDefaultConfig();
                 getConfig().options().copyDefaults();
                 saveDefaultConfig();
-                getServer().getPluginManager().registerEvents(new onPlayerArenaJoin() , this);
-                getServer().getPluginManager().registerEvents(new onPlayerServerJoin() ,this);
-                getServer().getPluginManager().registerEvents(new onPlayerWorldChange() ,this);
+                new EventsRegister(this);
                 Msg.console("&e&l[BedWars1058-Additions] &ahas been enabled successfully.");
                 Msg.console("&f[BedWars1058-Additions] &bHooks: \n" +
                         "&cPlaceholderAPI\n" +
