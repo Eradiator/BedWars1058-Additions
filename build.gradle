@@ -1,5 +1,8 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
     id 'java'
+    id("com.github.johnrengelman.shadow") version ("7.1.2")
 }
 
 group = 'me.eradiator'
@@ -21,28 +24,38 @@ repositories {
     }
     maven { url 'https://jitpack.io' }
 }
+shadowJar {
+    archiveName("Additions-"+project.version+".jar")
+    relocate("com.cryptomorin.xseries", "me.eradiator.bedwars.additions.libs.xseries")
+    exclude("com/cryptomorin/xseries/XTag*")
+    exclude("com/cryptomorin/xseries/XSound*")
+    exclude("com/cryptomorin/xseries/XBlock*")
+    exclude("com/cryptomorin/xseries/particles/")
+    exclude("com/cryptomorin/xseries/messages/")
+    exclude("com/cryptomorin/xseries/XPotion*")
+    exclude("com/cryptomorin/xseries/XItemStack*")
+    exclude("com/cryptomorin/xseries/XEntity*")
+    exclude("com/cryptomorin/xseries/ReflectionUtils*")
+    exclude("com/cryptomorin/xseries/NMSExtras*")
+    exclude("com/cryptomorin/xseries/XEnchantment*")
+    exclude("com/cryptomorin/xseries/NoteBlockMusic*")
+    exclude("com/cryptomorin/xseries/XBiome*")
+}
+build.dependsOn shadowJar
 
 dependencies {
-    implementation 'org.projectlombok:lombok:1.18.22'
-    implementation 'org.projectlombok:lombok:1.18.22'
-    implementation 'org.projectlombok:lombok:1.18.22'
-    implementation 'org.projectlombok:lombok:1.18.22'
-    implementation 'org.projectlombok:lombok:1.18.22'
     compileOnly 'org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT'
     compileOnly(files("libs/BedWars1058.jar"))
     compileOnly 'com.andrei1058.bedwars:bedwars-api:22.7'
     implementation 'com.github.cryptomorin:XSeries:9.1.0'
-    implementation 'com.github.KodySimpson:SimpAPI:4.3.2'
-    implementation(files("libs/PlaceholderAPI-2.11.2.jar"))
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    compileOnly(files("libs/PlaceholderAPI-2.11.2.jar"))
 }
 
-def targetJavaVersion = 8
+def targetJavaVersion = 11
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
+    sourceCompatibility = 11
+    targetCompatibility = 11
     if (JavaVersion.current() < javaVersion) {
         toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
     }

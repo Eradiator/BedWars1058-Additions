@@ -1,4 +1,4 @@
-name: Additions
+name: BedWars1058-Additions
 version: '${version}'
 main: me.eradiator.bedwars.additions.Main
 api-version: 1.13

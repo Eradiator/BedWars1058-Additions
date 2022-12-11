@@ -13,7 +13,12 @@ public class onPlayerServerJoin implements Listener {
     public void onPlayerJoin(org.bukkit.event.player.PlayerJoinEvent e){
         if (e.getPlayer().getWorld().toString().equalsIgnoreCase(BedWars.getLobbyWorld())) {
             if (MainPath.LOBBY_MODE.getBoolean()) {
-                e.getPlayer().setGameMode(GameMode.ADVENTURE);
+                new BukkitRunnable(){
+                    @Override
+                    public void run() {
+                        e.getPlayer().setGameMode(GameMode.ADVENTURE);
+                    }
+                }.runTaskLater(Main.getInstance() , 10L);
             }
             if (MainPath.LOBBY_LEVEL_BAR_ENABLED.getBoolean()) {
                 if (MainPath.LOBBY_LEVEL_BAR_PERMISSION_ENABLED.getBoolean()) {

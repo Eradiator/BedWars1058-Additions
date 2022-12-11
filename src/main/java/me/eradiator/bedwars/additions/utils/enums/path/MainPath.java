@@ -24,7 +24,11 @@ public enum MainPath {
     LOBBY_MODE("lobby.adventure-mode"),
     WAITING_MODE("waiting.adventure-mode"),
     UNBREAKABLE_MATERIAL_ENABLED("in-game.unbreakable.enabled"),
-    UNBREAKABLE_MATERIAL("in-game.unbreakable.materials");
+    UNBREAKABLE_MATERIAL("in-game.unbreakable.materials"),
+    EXECUTE_CMD_PERMISSION("execute-command.permission"),
+    EXECUTE_CMD_ENABLED("execute-command.enabled"),
+    EXECUTE_CMD_ALIASES("execute-command.aliases");
+
 
     final String path;
     MainPath(String path){

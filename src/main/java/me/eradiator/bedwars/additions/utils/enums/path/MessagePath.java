@@ -1,26 +1,28 @@
 package me.eradiator.bedwars.additions.utils.enums.path;
 
 import me.eradiator.bedwars.additions.Main;
-import me.eradiator.bedwars.additions.files.Messages;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.util.List;
 
 public enum MessagePath {
-    PREFIX("prefix"),
-    COMMAND_NO_PERMISSION("command-no-permission");
+    PREFIX("messages.prefix"),
+    EXECUTE_CMD_PLAYER_NOT_FOUND("execute-command.player-not-found"),
+    EXECUTE_CMD_NO_PERMISSION("execute-command.no-permission"),
+    EXECUTE_CMD_USAGE("execute-command.usage"),
+    COMMAND_NO_PERMISSION("messages.command-no-permission");
+
     final String path;
-    final Messages Messages = new Messages();
     MessagePath(String path){
         this.path = path;
     }
     public String getString(){
-        return Messages.getConfig().getString(path);
+        return Main.getInstance().getConfig().getString(path);
     }
     public List<String> getStringList(){
-        return Main.getMessageConfig().getConfig().getStringList(path);
+        return Main.getInstance().getConfig().getStringList(path);
     }
     public YamlConfiguration getConfig(){
-        return (YamlConfiguration) Main.getMessageConfig().getConfig();
+        return (YamlConfiguration) Main.getInstance().getConfig();
     }
 }

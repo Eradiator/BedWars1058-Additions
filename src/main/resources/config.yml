@@ -36,6 +36,16 @@ in-game:
       - "DIAMOND_SWORD"
       - "IRON_SWORD"
       - "WOODEN_SWORD"
+execute-command:
+  enabled: true
+  permission: "bwa.execute"
+  no-permission: "&cYou don't have permission"
+  player-not-found: "&cTarget player was not found"
+  usage: "&aUsage: &f/execute <Player> <Command>"
+messages:
+  #message configuration
+  prefix: "&c<< &fServer &c>> "
+  command-no-permission: "&cYou don't have the appropriate permission to use this command"
 
 
 

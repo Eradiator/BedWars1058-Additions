@@ -1,10 +1,7 @@
 package me.eradiator.bedwars.additions;
 
-import me.eradiator.bedwars.additions.files.Messages;
+import me.eradiator.bedwars.additions.utils.registerCMD;
 import me.eradiator.bedwars.additions.hooks.PAPI;
-import me.eradiator.bedwars.additions.listeners.onPlayerArenaJoin;
-import me.eradiator.bedwars.additions.listeners.onPlayerServerJoin;
-import me.eradiator.bedwars.additions.listeners.onPlayerWorldChange;
 import me.eradiator.bedwars.additions.utils.EventsRegister;
 import me.eradiator.bedwars.additions.utils.Msg;
 import org.bukkit.Bukkit;
@@ -12,7 +9,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
     static Main instance;
-    static Messages Messages = new Messages();
     static Msg Msg = new Msg();
 
 
@@ -23,12 +19,11 @@ public final class Main extends JavaPlugin {
         instance = this;
         if (Bukkit.getServer().getPluginManager().getPlugin("BedWars1058") != null) {
             if (Bukkit.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
-                Messages.getConfig().options().copyDefaults();
-                Messages.saveDefaultConfig();
                 getConfig().options().copyDefaults();
                 saveDefaultConfig();
                 new EventsRegister(this);
                 new PAPI().register();
+                new registerCMD();
                 Msg.console("&e&l[BedWars1058-Additions] &ahas been enabled successfully.");
                 Msg.console("&f[BedWars1058-Additions] &bHooks: \n" +
                         "&aPlaceholderAPI\n" +
@@ -37,11 +32,10 @@ public final class Main extends JavaPlugin {
 
             }
             else{
-                Messages.getConfig().options().copyDefaults();
-                Messages.saveDefaultConfig();
                 getConfig().options().copyDefaults();
                 saveDefaultConfig();
                 new EventsRegister(this);
+                new registerCMD();
                 Msg.console("&e&l[BedWars1058-Additions] &ahas been enabled successfully.");
                 Msg.console("&f[BedWars1058-Additions] &bHooks: \n" +
                         "&cPlaceholderAPI\n" +
@@ -63,9 +57,6 @@ public final class Main extends JavaPlugin {
         return instance;
     }
 
-    public static me.eradiator.bedwars.additions.files.Messages getMessageConfig() {
-        return Messages;
-    }
 
     public static me.eradiator.bedwars.additions.utils.Msg getMsgUtil() {
         return Msg;

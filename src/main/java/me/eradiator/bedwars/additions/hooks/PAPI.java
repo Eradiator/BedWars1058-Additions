@@ -14,8 +14,6 @@ import me.eradiator.bedwars.additions.utils.Msg;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -25,17 +23,17 @@ public class PAPI extends PlaceholderExpansion {
     Msg Msg = new Msg();
     BedWars api;
     @Override
-    public @NotNull String getIdentifier() {
+    public  String getIdentifier() {
         return "bw";
     }
 
     @Override
-    public @Nullable String getRequiredPlugin() {
+    public  String getRequiredPlugin() {
         return "BedWars1058";
     }
 
     @Override
-    public @NotNull String getAuthor() {
+    public  String getAuthor() {
         return "Eradiator";
     }
 
@@ -50,7 +48,7 @@ public class PAPI extends PlaceholderExpansion {
     }
 
     @Override
-    public @NotNull String getVersion() {
+    public  String getVersion() {
         return Main.getInstance().getDescription().getVersion();
     }
 
